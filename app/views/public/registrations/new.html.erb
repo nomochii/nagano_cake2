@@ -1,3 +1,18 @@
+<header>
+  <li>
+    <%= link_to 'About', about_path  %>
+  </li>
+  <!--<li>-->
+  <!--  <%#= link_to "商品一覧", items_path %>-->
+  <!--</li>-->
+  <li>
+    <%= link_to "新規登録", new_customer_registration_path %>
+  </li>
+  <li>
+    <%= link_to "ログイン", new_customer_session_path %>
+  </li>
+</header>
+
 <h2>新規会員登録</h2>
 
   <!--<%#= form_with model: @customer, url: customer_registration_path do |f| %>-->
@@ -64,4 +79,6 @@
   </div>
 <% end %>
 
-<%= render "public/shared/links" %>
+<%#= render "public/shared/links" %>
+<h4>既に登録済みの方</h4>
+<p><%= link_to "こちら", new_customer_session_path %>からログインしてください。</p>
