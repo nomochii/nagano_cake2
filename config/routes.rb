@@ -6,7 +6,7 @@ devise_for :customers,skip: [:passwords], controllers: {
 }
   root to: 'public/homes#top'
   get "about" => "public/homes#about", as: "about"
-
+  get "customers/my_page"=> "public/customers#show"
 # 管理者用
 devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
