@@ -11,6 +11,7 @@ devise_for :customers,skip: [:passwords], controllers: {
   patch "customers" => "public/customers#update"
   resources :orders
   resources :cart_items
+  resources :customer_items, only: [:show, :index]
 
 # 管理者用
 devise_for :admin, skip: [:registrations, :passwords] ,controllers: {

@@ -1,14 +1,14 @@
 class Admin::ItemsController < ApplicationController
 
   def new
-    @item = Item.new
+    @admin_item = AdminItem.new
   end
 
   def create
-    @item = Item.new(item_params)
-    @item.customer = current_customer
-    @item.save
-    redirect_to items_path(@item.id)
+    @admin_item = AdminItem.new(item_params)
+    @admin_item.customer = current_customer
+    @admin_item.save
+    redirect_to items_path(@admin_item.id)
   end
 
   def index
@@ -27,6 +27,6 @@ class Admin::ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:Product_image, :product_name, :introduction, :price)
+    params.require(:item).permit(:image, :product_name, :introduction, :price)
   end
 end
