@@ -34,7 +34,7 @@ class Public::SessionsController < Devise::SessionsController
       if @customer.valid_password?(params[:customer][:password]) && (@customer.is_deleted == false)
         redirect_to new_customer_registration
       else
-        render :crea
+        render :create
       end
     end
 
