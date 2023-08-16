@@ -16,17 +16,21 @@
 <h1>商品詳細</h1>
 <%= form_with model: @newitem, url: admin_item_path do |f| %>
 <table class="teble">
-<tbody>
-<td><%= image_tag @items.admin.get_image(100,100) %></td>
-<td><%= item.product_name %></td>
-<td><%= item.introduction %></td>
-<td><%= item.price %></td>
-<td>
-
-<%= link_to "Edit", edit_admin_item_path(@item.id) %>
-<% end %>
-</td>
-</tbody>
+  <tbody>
+    <td> 
+      <% if @item.image.attached? %>
+        <%= image_tag @item.image, size: "300x300" %>
+      <% else %>
+        <%= image_tag 'no_image', size: "300x300" %>
+      <% end %>
+    </td>
+    <td><%= @item.product_name %></td>
+    <td><%= @item.introduction %></td>
+    <td><%= @item.price %></td>
+    <td>
+      <%= link_to "編集する", edit_admin_item_path(@item.id) %>
+      <% end %>
+    </td>
+  </tbody>
 </table>
 
-<%= book.body %>
