@@ -14,3 +14,19 @@
 </header>
 
 <h1>商品詳細</h1>
+<%= form_with model: @newitem, url: admin_item_path do |f| %>
+<table class="teble">
+<tbody>
+<td><%= image_tag @items.admin.get_image(100,100) %></td>
+<td><%= item.product_name %></td>
+<td><%= item.introduction %></td>
+<td><%= item.price %></td>
+<td>
+
+<%= link_to "Edit", edit_admin_item_path(@item.id) %>
+<% end %>
+</td>
+</tbody>
+</table>
+
+<%= book.body %>
