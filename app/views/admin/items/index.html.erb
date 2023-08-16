@@ -1,1 +1,36 @@
+<header>
+  <!--<li>-->
+  <!--  <%#= link_to "商品一覧", items_path %>-->
+  <!--</li>-->
+  <!--<li>-->
+  <!--  <%#= link_to "会員一覧", customers_path %>-->
+  <!--</li>-->
+  <!--<li>-->
+  <!--  <%#= link_to "注文履歴一覧", customers_path %>-->
+  <!--</li>-->
+  <li>
+    <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+  </li>
+</header>
+
+
 <h1>管理者商品一覧</h1>
+<!--<thead>-->
+<!--  <tr>-->
+<!--    <th>商品ID</th>-->
+<!--    <th>商品名</th>-->
+<!--    <th>税抜価格</th>-->
+<!--  </tr>-->
+<!--</thead>-->
+
+<!--<%# @items.each do |book| %>-->
+<!--  <tbody>-->
+<!--    <tr>-->
+<!--      <td><%#= item.id %></td>-->
+<!--      <td>-->
+<!--        <%#= link_to product_name,items_path(item.id) do %>-->
+<!--        <%# end %>-->
+<!--      </td>-->
+<!--<td><%#= price.id %></td>-->
+<!--<p></p>-->
+<!--<%# end %>-->
