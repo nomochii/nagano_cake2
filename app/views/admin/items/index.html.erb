@@ -13,24 +13,24 @@
   </li>
 </header>
 
-
 <h1>管理者商品一覧</h1>
-<!--<thead>-->
-<!--  <tr>-->
-<!--    <th>商品ID</th>-->
-<!--    <th>商品名</th>-->
-<!--    <th>税抜価格</th>-->
-<!--  </tr>-->
-<!--</thead>-->
+<%= form_with model: @items, url: admin_items_path do |f| %>
+<thead>
+  <tr>
+    <th>商品ID</th>
+    <th>商品名</th>
+    <th>税抜価格</th>
+  </tr>
+</thead>
 
-<!--<%# @items.each do |item| %>-->
-<!--  <tbody>-->
-<!--    <tr>-->
-<!--      <td><%#= item.id %></td>-->
-<!--      <td>-->
-<!--        <%#= link_to product_name,items_path(item.id) do %>-->
-<!--        <%# end %>-->
-<!--      </td>-->
-<!--<td><%#= price.id %></td>-->
-<!--<p></p>-->
-<!--<%# end %>-->
+<% @items.each do |item| %>
+  <tbody>
+    <tr>
+      <td><%= @item.id %></td>
+      <td>
+        <%= link_to @item.product_name,items_path(item.id) do %>
+        <% end %>
+      </td>
+      <td><%= @item.price(item.id) %></td>
+<% end %>
+<% end %>
