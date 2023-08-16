@@ -1,11 +1,11 @@
 class Admin::ItemsController < ApplicationController
 
   def new
-    @admin_item = AdminItem.new
+    @admin_item = Item.new
   end
 
   def create
-    @admin_item = AdminItem.new(item_params)
+    @admin_item = Item.new(item_params)
     @admin_item.customer = current_customer
     @admin_item.save
     redirect_to items_path(@admin_item.id)
