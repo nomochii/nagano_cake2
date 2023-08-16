@@ -1,27 +1,32 @@
 class Admin::ItemsController < ApplicationController
 
   def new
-    @admin_item = Item.new
+    @newitem = Item.new
   end
 
   def create
-    @item = Item.new(item_params)
-    @item.customer = current_customer
-    @item.save
-    redirect_to items_path(@item.id)
+    @newitem = Item.new(item_params)
+
+    @newitem.save!
+    redirect_to admin_item_path(@newitem.id)
   end
 
   def index
-    @item = Item.all
+    @admin = current_admin
+    @admin = Admin.all
+    @items = Item.all
+    @newitem = Item.new
   end
+
 
   def edit
     @item = Item.find(params[:id])
   end
 
   def show
-    @item = Item.all
     @item = Item.find(params[:id])
+    
+    @newitem = Item.new
   end
 
   def destroy
