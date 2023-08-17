@@ -40,11 +40,15 @@
 <p>購入には会員登録が必要になります。</p>
 
 <h1>新着商品</h1>
-  <% @items.each do |item| %>
-    <div>
-      <%= image_tag item.image, size: "200x200" %>
-    </div>
-    <div><%= item.product_name %></div>
-    <div><%= item.price %></div>
-  <% end %>
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td>
+          <%= image_tag item.image, size: "200x200" %>
+        </td>
+        <td><%= item.product_name %></td>
+        <td><%= item.price %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </body>
