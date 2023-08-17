@@ -11,7 +11,7 @@
   <li>
     <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
   </li>
-  <h4>ようこそ、<%= @customer.first_name %>さん！</h4>
+  <h4>ようこそ、<%= current_customer.first_name %>さん！</h4>
 </header>
 
 <div class="container">
@@ -25,32 +25,32 @@
           <table class="table table-bordered">
             <tr>
               <td class="bg-light">氏名</td>
-              <td><%= @customer.full_name %></td>
+              <td><p><%= @customer.full_name %></p></td>
             </tr>
 
             <tr>
               <td class="bg-light">カナ</td>
-              <td><%#= @customer.full_name_kana %></td>
+              <td><p><%= @customer.full_name_kana %></p</td>
             </tr>
 
             <tr>
               <td class="bg-light">郵便番号</td>
-              <td><%#= @customer.postcode %></td>
+              <td><%= @customer.postal_code %></td>
             </tr>
 
             <tr>
               <td class="bg-light">住所</td>
-              <td><%#= @customer.address %></td>
+              <td><%= @customer.address %></td>
             </tr>
 
             <tr>
               <td class="bg-light">電話番号</td>
-              <td><%#= @customer.phone_number %></td>
+              <td><%= @customer.telephone_number %></td>
             </tr>
 
             <tr>
               <td class="bg-light">メールアドレス</td>
-              <td><%#= @customer.email %></td>
+              <td><%= @customer.email %></td>
             </tr>
           </table>
             <div class="d-flex align-items-center">
