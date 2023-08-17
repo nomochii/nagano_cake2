@@ -1,7 +1,7 @@
 <header>
-  <!--<li>-->
-  <!--  <%#= link_to "商品一覧", items_path %>-->
-  <!--</li>-->
+  <li>
+    <%= link_to "商品一覧", admin_items_path %>
+  </li>
   <!--<li>-->
   <!--  <%#= link_to "会員一覧", customers_path %>-->
   <!--</li>-->
@@ -15,14 +15,9 @@
 
 <h1>商品編集</h1>
 <%= form_with model: @item, url: admin_item_path(@item.id), method: :patch do |f| %>
+
 <h4>商品画像</h4>
-  <div>
-    <% if @item.image.attached? %>
-      <%= image_tag @item.image, size: "300x300" %>
-    <% else %>
-      <%= image_tag 'no_image', size: "300x300" %>
-    <% end %>
-  </div>
+    <%= f.file_field :image, accept: "image/*" %>
 
   <h4>商品名</h4>
   <%= f.text_field :product_name %>
