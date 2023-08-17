@@ -15,25 +15,22 @@
 
 <h1>商品詳細</h1>
 <%= form_with model: @newitem, url: admin_item_path do |f| %>
-<table class="teble">
-  <tbody>
-    <td>
+    <div>
       <% if @item.image.attached? %>
         <%= image_tag @item.image, size: "300x300" %>
       <% else %>
         <%= image_tag 'no_image', size: "300x300" %>
       <% end %>
-    </td>
-    <td><p>商品名</p></td>
-    <td><%= @item.product_name %></td>
-    <td><p>商品説明</p></td>
-    <td><%= @item.introduction %></td>
-    <td><p>税込価格</p></td>
-    <td><%= @item.price %></td>
-    <td>
+    </div>
+    <div><p>商品名</p></div>
+    <div><%= @item.product_name %></div>
+    <div><p>商品説明</p></div>
+    <div><%= @item.introduction %></div>
+    <div><p>税抜価格</p></div>
+    <div><%= @item.price %></div>
+    <div><p>税込価格</p></div>
+    <div><%= @item.add_tax_price.to_s(:dalimited) %></div>
+    <div>
       <%= link_to "編集する", edit_admin_item_path(@item.id) %>
       <% end %>
-    </td>
-  </tbody>
-</table>
-
+    </div>
