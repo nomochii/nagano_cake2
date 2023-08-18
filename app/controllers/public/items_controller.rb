@@ -5,8 +5,13 @@ class Public::ItemsController < ApplicationController
     # @items = Item.count
   end
 
+  def show
+    @item = Item.all
+    @item = Item.find(params[:id])
+  end
+
 
   def item_params
-    params.require(:item).permit(:image, :product_name, :price)
+    params.require(:item).permit(:image, :product_name, :introduction, :price)
   end
 end
