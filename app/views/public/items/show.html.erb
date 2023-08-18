@@ -17,7 +17,7 @@
 <h1>顧客商品詳細</h1>
 
 <%= form_with model: @item, url: item_path do |f| %>
-    <div><%= image_tag @item.image, size: "300x300" %></div>
+    <div><%= image_tag item.image, size: "300x300" %></div>
     <h4><%= @item.product_name %></h4>
     <div><%= @item.introduction %></div>
     <div><%= @item.add_tax_price.to_s(:dalimited) %></div>

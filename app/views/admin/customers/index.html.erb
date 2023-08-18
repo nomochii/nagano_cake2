@@ -1,0 +1,38 @@
+<header>
+  <li>
+    <%= link_to "商品一覧", admin_items_path %>
+  </li>
+  <!--<li>-->
+  <!--  <%#= link_to "会員一覧", customers_path %>-->
+  <!--</li>-->
+  <!--<li>-->
+  <!--  <%#= link_to "注文履歴一覧", customers_path %>-->
+  <!--</li>-->
+  <li>
+    <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+  </li>
+</header>
+<h1>会員一覧</h1>
+<%= form_with model: @customers, url: admin_customers_path do |f| %>
+  <table>
+    <thead>
+      <tr>
+        <th>会員ID</th>
+        <th>氏名</th>
+        <th>メールアドレス</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%# @customers.each do |item| %>
+        <tr>
+         <td><%#= @customer.id %></td>
+          <td>
+            <%#= link_to @customer.full_name, admin_customer_path(customer.id) %>
+          </td>
+          <td><%#= @customer.email %></td>
+        </tr>
+      <%# end %>
+    </tbody>
+  </table>
+<% end %>
