@@ -13,9 +13,10 @@
   </li>
 </header>
 
-<table>
+
   <h4><%= @customer.full_name %>さんの会員情報編集</h4>
   <%= form_with model: @customer, url: admin_customer_path(@customer.id), method: :patch do |f| %>
+  <table>
     <tr>
       <td>会員ID</td>
       <td><%= f.text_field :id %></td>
@@ -35,7 +36,7 @@
 
     <tr>
       <td>郵便番号</td>
-      <td><%= f.text_field :postcode %></td>
+      <td><%= f.text_field :postal_code %></td>
     </tr>
 
     <tr>
@@ -45,7 +46,7 @@
 
     <tr>
       <td>電話番号</td>
-      <td><%= f.text_field :phone_number %></td>
+      <td><%= f.text_field :telephone_number %></td>
     </tr>
 
     <tr>
@@ -62,6 +63,6 @@
     <tr>
       <td><%= f.submit '変更を保存' %></td>
     </tr>
-
+  </table>
   <% end %>
-</table>
+
