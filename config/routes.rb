@@ -10,6 +10,10 @@ devise_for :customers,skip: [:passwords], controllers: {
     get "customers/my_page"=> "customers#show"
     get "customers/information/edit" => "customers#edit"
     patch "customers" => "customers#update"
+    # 退会確認画面
+    get  '/customers/unsubscribe' => 'customers#unsubscribe'
+    # 論理削除用のルーティング
+    patch  '/customers/withdraw' => 'customers#withdraw'
     resources :orders
     resources :cart_items
     resources :items, only: [:show, :index]
