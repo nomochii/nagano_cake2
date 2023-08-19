@@ -14,10 +14,7 @@
   <h4>ようこそ、<%= current_customer.first_name %>さん！</h4>
 </header>
 
-<h1>顧客商品詳細</h1>
-
-    <div><%= image_tag item.image, size: "300x300" %></div>
-    <h4><%= @item.product_name %></h4>
-    <div><%= @item.introduction %></div>
-    <div><%= @item.add_tax_price.to_s(:dalimited) %></div>
-<% end %>
+<h1>ショッピングカート</h1>
+<tbody>
+  <% @items.each do |item| %>
+</tbody>
