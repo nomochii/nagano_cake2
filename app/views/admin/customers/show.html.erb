@@ -22,6 +22,11 @@
   <div>住所<%= @customer.address %></div>
   <div>電話番号<%= @customer.telephone_number %></div>
   <div>メールアドレス<%= @customer.email %></div>
+  <div>退会ステータス<% if @customer.is_deleted?%>
+                        退会
+                      <%else%>
+                        有効
+                      <% end %></div>
   <div>
     <%= link_to "編集する", edit_admin_customer_path(@customer.id) %>
   </div>

@@ -13,7 +13,6 @@
   </li>
 </header>
 <h1>会員一覧</h1>
-<%= form_with model: @customers, url: admin_customers_path do |f| %>
   <table>
     <thead>
       <tr>
@@ -32,8 +31,12 @@
             <%= link_to customer.full_name, admin_customer_path(customer.id) %>
           </td>
           <td><%= customer.email %></td>
+          <td><% if customer.is_deleted?%>
+                退会
+              <%else%>
+                有効
+              <% end %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
-<% end %>
