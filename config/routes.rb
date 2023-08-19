@@ -15,7 +15,8 @@ devise_for :customers,skip: [:passwords], controllers: {
     # 論理削除用のルーティング
     patch  '/customers/withdraw' => 'customers#withdraw'
     resources :orders
-    resources :cart_items
+    resources :cart_items, only: [:index, :update, :destroy, :create]
+    get "cart_items/destroy_all"=> "cart_items#destroy_all"
     resources :items, only: [:show, :index]
   end
 
