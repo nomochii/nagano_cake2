@@ -8,10 +8,11 @@ class Public::CartItemsController < ApplicationController
 
   def update
     @cart_item = CartItem.find(params[:id])
+    @cart_item.customer_id = current_customer.id
     if @cart_item.update(cart_item_params)
-      redirect_to  cart_item_path(@cart_item.id)
+      redirect_to  cart_items_path(@cart_item.id)
     else
-      render :edit
+      render :index
     end
   end
 
