@@ -5,9 +5,9 @@
   <li>
     <%= link_to "商品一覧", items_path %>
   </li>
-  <!--<li>-->
-  <!--  <%#= link_to "カート", cart_items_path %>-->
-  <!--</li>-->
+  <li>
+    <%= link_to "カート", cart_items_path %>
+  </li>
   <li>
     <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
   </li>
@@ -16,8 +16,15 @@
 
 <h1>顧客商品詳細</h1>
 
-    <div><%= image_tag item.image, size: "300x300" %></div>
+    <div><%= image_tag @item.image, size: "300x300" %></div>
     <h4><%= @item.product_name %></h4>
     <div><%= @item.introduction %></div>
     <div><%= @item.add_tax_price.to_s(:dalimited) %></div>
-<% end %>
+    <div>
+      <%= form_with(model: @cart_item,url: cart_items_path, method: :post )do |f| %>
+        <%= f.label :amount, "個数選択" %>
+        <%= f.select :amount, [1,2,3,4,5,6,7,8,9,10] %>
+        <%= f.hidden_field :item_id, :value => @item.id %>
+        <%= f.submit "カートに入れる" %>
+      <% end %>
+    </div>
