@@ -21,13 +21,13 @@ class Public::CartItemsController < ApplicationController
     @cart_item.destroy # データ（レコード）を削除
     @cart_items = CartItem.all# 削除後のカート内全件取得
     @total = @cart_items.inject(0) { |sum, item| sum + item.subtotal }# 削除後のカート内の合計
-    render :index
+    redirect_to cart_items_path
   end
 
   def destroy_all
-    @cart_item_all = CartItem.all# データ（レコード）を全件取得
-    @cart_item_all.destroy.all# データ（レコード）を全件削除
-    render :index
+    @cart_items_all = current_customer.cart_items# 自分のカートアイテムデータ（レコード）だけを取得
+    @cart_items_all.destroy_all# 自分のカートアイテムデータ（レコード）だけを全件削除
+    redirect_to cart_items_path
   end
 
   def create
