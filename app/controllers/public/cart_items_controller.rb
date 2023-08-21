@@ -17,15 +17,17 @@ class Public::CartItemsController < ApplicationController
   end
 
   def destroy
-    @cart_item = CartItem.find(params[:id])
-    @cart_item.destroy
-    redirect_to cart_items_path
+    @cart_item = CartItem.find(params[:id]) # データ（レコード）を1件取得
+    @cart_item.destroy # データ（レコード）を削除
+    @cart_items = CartItem.all# 削除後のカート内全件取得
+    @total = @cart_items.inject(0) { |sum, item| sum + item.subtotal }# 削除後のカート内の合計
+    render :index
   end
 
   def destroy_all
-    @cart_item_all = CartItem.all
-    @cart_item_all.destroy
-    redirect_to cart_items_path
+    @cart_item_all = CartItem.all# データ（レコード）を全件取得
+    @cart_item_all.destroy.all# データ（レコード）を全件削除
+    render :index
   end
 
   def create

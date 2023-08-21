@@ -7,7 +7,7 @@ class Admin::ItemsController < ApplicationController
   def create
     @newitem = Item.new(item_params)
 
-    @newitem.save!
+    @newitem.save
     redirect_to admin_item_path(@newitem.id)
   end
 

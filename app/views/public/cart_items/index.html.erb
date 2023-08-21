@@ -39,8 +39,10 @@
           <% end %>
         </td>
         <td><%= cart_item.subtotal%></td>
+        <td><%= link_to "削除", cart_item_path(cart_item.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
         <td><%= @total.round.to_s(:delimited)%></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+ <!--cart_items_destroy_all-->
