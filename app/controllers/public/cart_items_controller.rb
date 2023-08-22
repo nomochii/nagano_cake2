@@ -2,7 +2,6 @@ class Public::CartItemsController < ApplicationController
 
   def index
     @cart_items = current_customer.cart_items.all
-    @items = Item.all
     @total = @cart_items.inject(0) { |sum, item| sum + item.subtotal }
   end
 
@@ -10,7 +9,7 @@ class Public::CartItemsController < ApplicationController
     @cart_item = CartItem.find(params[:id])
     @cart_item.customer_id = current_customer.id
     if @cart_item.update(cart_item_params)
-      redirect_to  cart_items_path(@cart_item.id)
+      redirect_to  cart_items_path
     else
       render :index
     end
