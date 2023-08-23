@@ -1,0 +1,41 @@
+<header>
+  <li>
+    <%= link_to 'マイページ', customers_my_page_path  %>
+  </li>
+  <li>
+    <%= link_to "商品一覧", items_path %>
+  </li>
+  <li>
+    <%= link_to "カート", cart_items_path %>
+  </li>
+  <li>
+    <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
+  </li>
+  <h4>ようこそ、<%= current_customer.first_name %>さん！</h4>
+</header>
+
+<h1>注文情報確認</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>商品画像</th>
+      <th>商品名</th>
+      <th>単価(税込)</th>
+      <th>数量</th>
+      <th>小計</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= form_with model: @order, url: "/orders/confirm", method: :post, local: true do |f| %>
+      <tr>
+        <td><%= image_tag order.cart_item.item.image, size: "50x50" %></td>
+        <td><%= order.cart_item.item.product_name %></td>
+        <td><%= order.cart_item.item.add_tax_price.to_s(:dalimited) %></td>
+        <td><%= order.cart_item.subtotal%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to "買い物を続ける", root_path %>
+合計<%= @total.round.to_s(:delimited)%>
