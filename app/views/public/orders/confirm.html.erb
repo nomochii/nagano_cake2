@@ -27,11 +27,11 @@
     </tr>
   </thead>
   <tbody>
-    <%= form_with model: @order, url: "/orders/confirm", method: :post, local: true do |f| %>
+    <% @cart_items.each do |cart_item| %>
       <tr>
-        <td><%= image_tag order.cart_item.item.image, size: "50x50" %></td>
-        <td><%= order.cart_item.item.product_name %></td>
-        <td><%= order.cart_item.item.add_tax_price.to_s(:dalimited) %></td>
+        <td><%= image_tag order.cart_item.image, size: "50x50" %></td>
+        <td><%= order.cart_item.product_name %></td>
+        <td><%= order.cart_item.add_tax_price.to_s(:dalimited) %></td>
         <td><%= order.cart_item.subtotal%></td>
       </tr>
     <% end %>

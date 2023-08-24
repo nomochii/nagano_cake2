@@ -17,7 +17,7 @@
 <h1>注文情報入力</h1>
 
 
-<%= form_with model: @order do |f| %>
+<%= form_with model: @order, url: "/orders/confirm", method: :post, local: true do |f| %>
 
   <h2>支払方法</h2>
   <%= f.radio_button :payment_method, Order.payment_methods.key(0) %>

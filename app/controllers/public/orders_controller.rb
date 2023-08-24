@@ -13,14 +13,16 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
+    @orders = current_customer.orders
   end
 
   def confirm
     @order = Order.new(order_params)
-    @order.customer_id = current_customer.id
-    @orders = current_customer.orders.all
-    @order.save
-    redirect_to orders_complete_path
+    # @order.customer_id = current_customer.id
+    # @cart_items = current_customer.cart_items.all
+    # @orders = current_customer.orders.all
+    # @order.save
+    # redirect_to orders_complete_path
   end
 
 
@@ -28,6 +30,8 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
+    @order = Order.find(params[:id])
+    @ordere_details = @order.ordere_details
   end
 
 
