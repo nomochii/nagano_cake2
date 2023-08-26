@@ -17,10 +17,10 @@
 <h1>注文情報入力</h1>
 
 
-<%= form_with model: @order, url: "/orders/confirm", method: :post, local: true do |f| %>
+<%= form_with model: @order, url: "/orders/confirm",method: :post, local: true do |f| %>
 
   <h2>支払方法</h2>
-  <%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
+  <%= f.radio_button :payment_method, Order.payment_methods.key(0),checked: true %>
   <%= f.label :payment_method_credit_card, Order.payment_methods_i18n[:credit_card] %>
 
   <%= f.radio_button :payment_method, Order.payment_methods.key(1) %>
@@ -30,7 +30,6 @@
   <h4>〒<%= current_customer.postal_code %></h4>
   <div><%= current_customer.address %></div>
   <div><%= current_customer.full_name %></div>
+  <%= f.submit "確認画面へ進む" %>
 
 <% end %>
-
-<p><%= link_to "確認画面へ進む", orders_confirm_path %></p>
