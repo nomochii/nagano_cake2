@@ -25,11 +25,12 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-    @orders = current_customer.orders
-    @customer = current_customer
-    @customers = Customer.all
-    @order = Order.all
-    @order = Order.new
+    @orders = current_customer.orders.all
+    # @customer = current_customer
+    # @customers = Customer.all
+    # @order = Order.all
+    # @order = Order.new
+
   end
 
   # new 画面から渡ってきたデータをユーザーに確認してもらう
@@ -51,6 +52,8 @@ class Public::OrdersController < ApplicationController
 
   def show
     @order = current_customer.orders.find(params[:id])
+    @orders = @order.order_details
+    # @order = Order.new
   end
 
 

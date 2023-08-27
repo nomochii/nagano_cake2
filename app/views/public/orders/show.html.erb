@@ -36,11 +36,11 @@
     <h2>請求情報</h2>
     <tr>
       <th>商品合計</th>
-      　<td><%#= @total.round.to_s(:delimited) %></td>
+      　<td><%=  @order.total_amount - @order.postage %></td>
       <th>配送料</th>
-      　<td><%#= @order.postage %><td/>
+      　<td><%= @order.postage %><td/>
       <th>ご請求額</th>
-      　  <td<%#= @order.total_amount.to_s(:dalimited) %>></td>
+      　  <td><%= @order.total_amount.to_s(:dalimited) %>></td>
     </tr>
   </tbody>
 
@@ -55,11 +55,13 @@
 
   <tbody>
     <h2>注文内容</h2>
+    <% @order.order_details.each do |order_detail| %>
     <tr>
-      <td><%= order.order_detail.item.product_name %></td>
-      <td><%= order_detail.item.price %></td>
-      <td><%= order_detail.item.amount %><td/>
-      <td><%= cart_item.item.subtotal%></td>
+      <td><%= order_detail.item.product_name %></td>
+      <td><%= order_detail.purchase_price %></td>
+      <td><%= order_detail.amount %><td/>
+      <td><%= order_detail.subtotal%></td>
     </tr>
+    <% end %>
   </tbody>
 </table>
