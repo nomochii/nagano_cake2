@@ -32,7 +32,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }
   namespace :admin do
-    get "admin" => "homes#top", as: "admin"
+    get "admin" => "homes#top", as: "/"
 
     resources :items, only: [:show, :edit, :update, :index, :new, :create]
 
