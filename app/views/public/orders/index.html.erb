@@ -27,15 +27,19 @@
     </tr>
   </thead>
   <tbody>
-    <%= @orders.each do |order| %>
+    <% @orders.each do |order| %>
       <tr>
         <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
         <td>
           <p>〒<%= order.shipping_postal_code %></p>
-          <div><%= order.shipping_address %></div>
-          <div><%= order.shipping_name %></div>
+          <p><%= order.shipping_address %></p>
+          <p><%= order.shipping_name %></p>
         </td>
-        <td><%= order.cart_item.product_name %></td>
+        <td>
+          <% order.order_details.each do |order_detail| %>
+            <p><%= order_detail.item.product_name %></p>
+          <% end %>
+        </td>
         <td><%= order.total_amount.to_s(:dalimited) %></td>
         <td><%= link_to "表示する",order_path(order.id) %></td>
       </tr>
