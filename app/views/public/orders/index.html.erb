@@ -35,7 +35,7 @@
           <div><%= order.shipping_address %></div>
           <div><%= order.shipping_name %></div>
         </td>
-        <td><%= order.item.product_name %></td>
+        <td><%= order.cart_item.product_name %></td>
         <td><%= order.total_amount.to_s(:dalimited) %></td>
         <td><%= link_to "表示する",order_path(order.id) %></td>
       </tr>

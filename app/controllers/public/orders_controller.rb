@@ -25,8 +25,9 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-    @order = current_customer
-    @order = Customer.all
+    @orders = current_customer.orders
+    @customer = current_customer
+    @customers = Customer.all
     @order = Order.all
     @order = Order.new
   end
@@ -49,8 +50,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
-    # @order = Order.find(params[:id])
-    # @ordere_details = @order.ordere_details
+    @order = current_customer.orders.find(params[:id])
   end
 
 
