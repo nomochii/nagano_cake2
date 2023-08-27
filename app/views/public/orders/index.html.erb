@@ -1,0 +1,44 @@
+<header>
+  <li>
+    <%= link_to 'マイページ', customers_my_page_path  %>
+  </li>
+  <li>
+    <%= link_to "商品一覧", items_path %>
+  </li>
+  <li>
+    <%= link_to "カート", cart_items_path %>
+  </li>
+  <li>
+    <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
+  </li>
+  <h4>ようこそ、<%= current_customer.first_name %>さん！</h4>
+</header>
+
+<h1>注文履歴一覧</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>注文日</th>
+      <th>配送先</th>
+      <th>注文商品</th>
+      <th>支払金額</th>
+      <th>注文詳細</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= @orders.each do |order| %>
+      <tr>
+        <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
+        <td>
+          <p>〒<%= order.shipping_postal_code %></p>
+          <div><%= order.shipping_address %></div>
+          <div><%= order.shipping_name %></div>
+        </td>
+        <td><%= order.item.product_name %></td>
+        <td><%= order.total_amount.to_s(:dalimited) %></td>
+        <td><%= link_to "表示する",order_path(order.id) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -25,25 +25,16 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-    @orders = current_customer.orders
+    @order = current_customer
+    @order = Customer.all
+    @order = Order.all
+    @order = Order.new
   end
 
   # new 画面から渡ってきたデータをユーザーに確認してもらう
   def confirm
     # new 画面から渡ってきたデータを @order に入れる
     @order = Order.new(order_params)
-      # @cart_items.each do |cart_item|
-      #   @cart_item.customer_id = current_customer.id
-      #   @cart_items = current_customer.cart_items.all
-      #   @order = OrderDetail.new
-      #   @order.order_id = order.id
-      #   @order.item_id = cart_item.item.id
-      #   @order.price = cart_item.item.price
-      #   @order.amount = cart_item.amount
-      #   @order.save!
-      # end
-
-
     @order.shipping_postal_code = current_customer.postal_code
     @order.shipping_address = current_customer.address
     @order.shipping_name = current_customer.first_name + current_customer.last_name
