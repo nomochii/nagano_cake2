@@ -14,3 +14,37 @@
 </header>
 
 <h1>注文履歴詳細</h1>
+
+<h4>購入者</h4>
+<p><%= link_to order.customer.first_name, admin_customer_path(customer.id)%><%= order.customer.last_name, admin_customer_path(customer.id) %></p>
+<h4>注文日</h4>
+<p><%= order.created_at.strftime("%Y/%m/%d %H:%M")</p>
+<h4>配送先</h4>
+<p>〒<%= order.shipping_postal_code %></p>
+<p><%= order.shipping_address %></p>
+<p><%= order.shipping_name %></p>
+<h4>支払方法</h4>
+<p><%= @order.payment_method_i18n%>></p>
+
+<table>
+    <thead>
+      <tr>
+        <th>商品名</th>
+        <th>単価（税込）</th>
+        <th>数量</th>
+        <th>小計</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @order_details.each do |order_detail| %>
+        <tr>
+         <td><%= item.id %></td>
+          <td><%= item.product_name, admin_item_path(item.id) %></td>
+          <td><%= item.price %></td>
+          <td><%= item.price %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
