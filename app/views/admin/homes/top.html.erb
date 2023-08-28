@@ -5,9 +5,9 @@
   <li>
     <%= link_to "会員一覧", customers_path %>
   </li>
-  <!--<li>-->
-  <!--  <%#= link_to "注文履歴一覧", customers_path %>-->
-  <!--</li>-->
+  <li>
+    <%= link_to "注文履歴一覧", admin_path %>
+  </li>
   <li>
     <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
   </li>
@@ -24,13 +24,15 @@
     </thead>
 
     <tbody>
-      <% @customers.each do |customer| %>
+      <% @orders.each do |order| %>
         <tr>
-         <td><%= link_to order.created_at.strftime('%Y/%m/%d'), admin_order_path(customer.id) %></td>
-          <td>
-            <%= customer.full_name, admin_customer_path(customer.id) %>
-          </td>
-          <td><%= customer.amount %></td>
+          <td><%= link_to order.created_at.strftime("%Y/%m/%d %H:%M"), admin_order_details_path(order.id) %></td>
+          <td><%= order.customer.first_name %><%= order.customer.last_name %></td>
+            <% @order_amount =0 %>
+            <% order.order_details.each do |order_detail| %>
+              <% @order_amount = @order_amount + order_detail.amount %>
+            <% end %>
+            <td><%= @order_amount %></td>
         </tr>
       <% end %>
     </tbody>

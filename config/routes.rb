@@ -38,7 +38,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
     resources :customers, only: [:show, :edit, :update, :index]
 
-    get "order_details" => "admin/order_details#show"
+    get "order_details" => "order_details#show"
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 

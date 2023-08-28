@@ -5,14 +5,13 @@
   <li>
     <%= link_to "会員一覧", customers_path %>
   </li>
-  <!--<li>-->
-  <!--  <%#= link_to "注文履歴一覧", customers_path %>-->
-  <!--</li>-->
+  <li>
+    <%= link_to "注文履歴一覧", admin_path %>
+  </li>
   <li>
     <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
   </li>
 </header>
-
   <h4><%= @customer.full_name %>さんの会員詳細</h4>
   <div>会員ID<%= @customer.id %></div>
   <div>氏名<%= @customer.full_name %></div>
