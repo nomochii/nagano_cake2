@@ -16,13 +16,17 @@
 <h1>注文履歴詳細</h1>
 
 <h4>購入者</h4>
-<p><%= link_to order.customer.first_name, admin_customer_path(customer.id)%><%= order.customer.last_name, admin_customer_path(customer.id) %></p>
+<p>
+<%= link_to admin_customer_path(@order) do %>
+  <%= @order.customer.last_name %><%= @order.customer.first_name %>
+<% end %>
+</p>
 <h4>注文日</h4>
-<p><%= order.created_at.strftime("%Y/%m/%d %H:%M")</p>
+<p><%= @order.created_at.strftime("%Y/%m/%d %H:%M")</p>
 <h4>配送先</h4>
-<p>〒<%= order.shipping_postal_code %></p>
-<p><%= order.shipping_address %></p>
-<p><%= order.shipping_name %></p>
+<p>〒<%= @order.shipping_postal_code %></p>
+<p><%= @order.shipping_address %></p>
+<p><%= @order.shipping_name %></p>
 <h4>支払方法</h4>
 <p><%= @order.payment_method_i18n%>></p>
 
@@ -30,21 +34,33 @@
     <thead>
       <tr>
         <th>商品名</th>
-        <th>単価（税込）</th>
-        <th>数量</th>
-        <th>小計</th>
-      </tr>
-    </thead>
+      <th>単価(税込)</th>
+      <th>個数</th>
+      <th>小計</th>
+    </tr>
+  </thead>
 
-    <tbody>
-      <% @order_details.each do |order_detail| %>
-        <tr>
-         <td><%= item.id %></td>
-          <td><%= item.product_name, admin_item_path(item.id) %></td>
-          <td><%= item.price %></td>
-          <td><%= item.price %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <tbody>
+    <h2>注文履歴詳細</h2>
+    <% @order.order_details.each do |order_detail| %>
+      <tr>
+        <td><%= order_detail.item.product_name %></td>
+        <td><%= order_detail.purchase_price %></td>
+        <td><%= order_detail.amount %><td/>
+        <td><%= order_detail.subtotal%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+  <p>
+    <h4>商品合計</h4>
+    ¥<%=  @order.total_amount - @order.postage %>
+  </p>
+  <p>
+    <h4>送料</h4>
+    ¥<%= @order.postage %>
+  <p>
+  <h4>請求金額合計</h4>
+  ¥<%= @order.total_amount.to_s(:dalimited) %>
+  </p>
 <% end %>
