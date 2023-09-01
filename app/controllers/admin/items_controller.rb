@@ -13,8 +13,8 @@ class Admin::ItemsController < ApplicationController
 
   def index
     @admin = current_admin
-    @admin = Admin.all
-    @items = Item.all
+    @admin = Admin.page(params[:page])
+    @items = Item.page(params[:page])
     @newitem = Item.new
   end
 
