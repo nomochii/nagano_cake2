@@ -41,6 +41,7 @@ class Public::OrdersController < ApplicationController
     @order.shipping_address = current_customer.address
     @order.shipping_name = current_customer.first_name + current_customer.last_name
     @order.postage = 800
+    @order.payment_method = current_customer.payment_method
     @cart_items = current_customer.cart_items
     @total = @cart_items.inject(0) { |sum, item| sum + item.subtotal }
     @order.total_amount = @total + @order.postage
@@ -52,7 +53,8 @@ class Public::OrdersController < ApplicationController
 
   def show
     @order = current_customer.orders.find(params[:id])
-    @orders = @order.order_details
+    @order_details = @order.order_details
+
     # @order = Order.new
   end
 
