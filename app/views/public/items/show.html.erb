@@ -11,7 +11,7 @@
   <li>
     <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
   </li>
-  <h4>ようこそ、<%= current_customer.first_name %>さん！</h4>
+  <h4>ようこそ、<%= @customer.first_name %>さん！</h4>
 </header>
 
 <h1>顧客商品詳細</h1>

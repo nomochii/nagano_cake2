@@ -9,7 +9,7 @@ class Public::CustomersController < ApplicationController
   end
 
   def show
-    @customer = current_customer
+    @customer = customer.find(current_customer.id)
   end
 
   def edit
