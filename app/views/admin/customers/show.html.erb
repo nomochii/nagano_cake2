@@ -13,21 +13,24 @@
   </li>
 </header>
   <h4><%= @customer.full_name %>さんの会員詳細</h4>
-  <div>会員ID<%= @customer.id %></div>
-  <div>氏名<%= @customer.full_name %></div>
-  <div>フリガナ<%= @customer.full_name_kana%></div>
-  <div>郵便番号<%= @customer.postal_code %></div>
-  <div>住所<%= @customer.address %></div>
-  <div>電話番号<%= @customer.telephone_number %></div>
-  <div>メールアドレス<%= @customer.email %></div>
-  <div>退会ステータス<% if @customer.is_deleted?%>
+  <p>会員ID<%= @customer.id %></p>
+  <p>氏名<%= @customer.full_name %></p>
+  <p>フリガナ<%= @customer.full_name_kana%></p>
+  <p>郵便番号<%= @customer.postal_code %></p>
+  <p>住所<%= @customer.address %></p>
+  <p>電話番号<%= @customer.telephone_number %></p>
+  <p>メールアドレス<%= @customer.email %></p>
+  <p>退会ステータス<% if @customer.is_deleted?%>
                         退会
                       <%else%>
                         有効
-                      <% end %></div>
-  <div>
+                      <% end %></p>
+  <p>
     <%= link_to "編集する", edit_admin_customer_path(@customer.id) %>
-  </div>
+  </p>
+  <p>
+    <%= link_to "注文履歴一覧を見る", admin_path %>
+  </p>
 
 
 
