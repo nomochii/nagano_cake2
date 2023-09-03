@@ -3,15 +3,12 @@ Rails.application.routes.draw do
     get 'orders/index'
     get 'orders/show'
   end
+
 # 顧客用
-devise_for :customers,skip: [:passwords], controllers: {
-  registrations: "public/registrations",
-  sessions: 'public/sessions'
-}
-  scope module: :public do
+scope module: :public do
     root to: 'homes#top'
     get "about" => "homes#about", as: "about"
-    get "customers/my_page"=> "customers#show"
+    get "customers/my_page" => "customers#show"
 
     get "customers/information/edit" => "customers#edit"
     patch "customers" => "customers#update"
@@ -30,6 +27,11 @@ devise_for :customers,skip: [:passwords], controllers: {
 
     resources :items, only: [:show, :index]
   end
+
+devise_for :customers,skip: [:passwords], controllers: {
+  registrations: "public/registrations",
+  sessions: 'public/sessions'
+}
 
 # 管理者用
 devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
