@@ -1,8 +1,7 @@
 class Public::ItemsController < ApplicationController
 
   def index
-     @items = Item.all
-    # @items = Item.count
+     @items = Item.page(params[:page])
   end
 
   def show
@@ -12,9 +11,14 @@ class Public::ItemsController < ApplicationController
   end
 
   def update
+    # customer = Customer.find(params[:id])
+    # unless customer.id == current_customer.id
+    # redirect_to root_path
+    # end
+
      @item = Item.find(params[:id])
      @item.update(item_params)
-      redirect_to  cart_items_path
+     redirect_to  cart_items_path
   end
 
   def item_params

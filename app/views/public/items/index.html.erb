@@ -11,21 +11,21 @@
   <li>
     <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
   </li>
-  <h4>ようこそ、<%= current_customer.first_name %>さん！</h4>
+  <!--<h4>ようこそ、<%#= current_customer.first_name %>さん！</h4>-->
 </header>
 
-<h1>商品一覧</h1>
-<tbody>
-  <% @items.each do |item| %>
-    <tr>
-      <td>
-        <%= link_to item_path(item.id) do %>
-          <%= image_tag item.image, size: "200x200" %>
-        <% end %>
-      </td>
-      <td><%= link_to item.product_name,item_path(item.id) %></td>
-      <td><%= link_to item.price,item_path(item.id) %></td>
-    </tr>
-  <% end %>
-</tbody>
-
+<h1>商品一覧</h1><h5>(全<%= @items.count %>件)</h5>
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td>
+          <%= link_to item_path(item.id) do %>
+            <%= image_tag item.image, size: "200x200" %>
+          <% end %>
+        </td>
+        <td><%= link_to item.product_name,item_path(item.id) %></td>
+        <td><%= link_to item.price,item_path(item.id) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+<%= paginate @items %>
