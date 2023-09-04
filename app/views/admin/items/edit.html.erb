@@ -1,18 +1,3 @@
-<!--<header>-->
-<!--  <li>-->
-<!--    <%#= link_to "商品一覧", admin_items_path %>-->
-<!--  </li>-->
-<!--  <li>-->
-<!--    <%#= link_to "会員一覧", admin_customers_path %>-->
-<!--  </li>-->
-<!--  <li>-->
-<!--    <%#= link_to "注文履歴一覧", admin_path %>-->
-<!--  </li>-->
-<!--  <li>-->
-<!--    <%#= link_to "ログアウト", destroy_admin_session_path, method: :delete %>-->
-<!--  </li>-->
-<!--</header>-->
-
 <h1>商品編集</h1>
 <%= form_with model: @item, url: admin_item_path(@item.id), method: :patch do |f| %>
 
