@@ -1,7 +1,9 @@
 class Public::CartItemsController < ApplicationController
+  #https://qiita.com/tobita0000/items/866de191635e6d74e392#user_session
+  before_action :authenticate_customer!
 
   def index
-    @cart_items = current_customer.cart_items.all
+    @cart_items = current_customer.cart_items
     @total = @cart_items.inject(0) { |sum, item| sum + item.subtotal }
   end
 
@@ -35,6 +37,8 @@ class Public::CartItemsController < ApplicationController
         new_amount = cart_item.amount + @cart_item.amount
         cart_item.update_attribute(:amount, new_amount)
         @cart_item.delete
+        # else
+        #   redirect_to new_customer_session_path
         end
       end
       @cart_item.save
