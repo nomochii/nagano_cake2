@@ -4,10 +4,22 @@
   position: relative;
 }
 
-.center {
+.top_text {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: #FF69B4;
+}
+
+.about_title {
+  text-align:center;
+}
+
+.about {
+  text-align:center;
+}
+
+.about_image {
+  text-align:center;
 }
