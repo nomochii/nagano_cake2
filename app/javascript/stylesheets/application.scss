@@ -1,6 +1,6 @@
 @use '~bootstrap/scss/bootstrap';
 .top_image {
-  text-align:center;
+  text-align: center;
   position: relative;
 }
 
@@ -12,19 +12,27 @@
   color: #FF69B4;
 }
 
+.li {
+  background-color: lightgrey;
+  display: inline;
+   width: 300px;
+  height: 30px;
+  margin: 8px;
+}
+
 .about_title {
-  text-align:center;
+  text-align: center;
 }
 
 .about {
-  text-align:center;
+  text-align: center;
 }
 
 .about_image {
-  text-align:center;
+  text-align: center;
 }
 
 .footer {
-  text-align:center;
+  text-align: center;
   background-color: rgba(0,0,0,0.5);
 }
