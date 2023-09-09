@@ -12,13 +12,40 @@
   color: #FF69B4;
 }
 
-.li {
-  background-color: lightgrey;
-  display: inline;
-  width: 300px;
-  height: 30px;
-  margin: 8px;
+header {
+  display: flex;
 }
+
+.logo {
+  margin: 5px;
+}
+
+.welcome {
+  position: relative;
+  top: 10px; /*追記*/
+  left: -500px; /*追記*/
+
+}
+
+.menu {
+  margin: 0 0 0 auto;
+
+}
+
+ul {
+  display: flex;
+  list-style: none;
+
+  margin: 5px 10px;
+}
+
+// .li {
+//   background-color: lightgrey;
+//   display: inline;
+//   width: 300px;
+//   height: 30px;
+//   margin: 8px;
+// }
 
 .top_link {
   margin-right: 0;
