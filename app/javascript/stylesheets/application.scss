@@ -15,17 +15,17 @@
 .li {
   background-color: lightgrey;
   display: inline;
-   width: 300px;
+  width: 300px;
   height: 30px;
   margin: 8px;
 }
 
-// https://zero-plus.io/media/css-right/
-// .top_item_link {
-//   margin-right: 0;
-// 　margin-left: auto;
-//   width: 30%;
-// }
+.top_link {
+  margin-right: 0;
+  margin-left: auto;
+  width: 30%;
+  display: block;
+}
 
 .about_title {
   text-align: center;

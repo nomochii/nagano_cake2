@@ -1,38 +1,38 @@
 <header>
-   <div class="container">
+  <div class="container">
     <div class="row">
      <!--ロゴ -->
       <nav class="nav navbar-nav navbar-left">
-      <% if admin_signed_in? %>
-        <%= link_to "ながの CAKE", admin_path, class: "fas fa-birthday-cake" %>
-      <% else %>
-        <%= link_to "ながの CAKE", root_path, class: "fas fa-birthday-cake" %>
-      <% end %>
-     </nav>
+       <% if admin_signed_in? %>
+         <%= link_to "ながの CAKE", admin_path, class: "fas fa-birthday-cake" %>
+       <% else %>
+         <%= link_to "ながの CAKE", root_path, class: "fas fa-birthday-cake" %>
+       <% end %>
+      </nav>
 
-        <ul>
-          <% if customer_signed_in? %>
-           <!--カスタマーがログインしている時　-->
-           <li><%= link_to 'マイページ', customers_my_page_path  %></li>
-           <li><%= link_to "商品一覧", items_path %></li>
-           <li><%= link_to "カート", cart_items_path %></li>
-           <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></li>
-           <li>ようこそ、<%= current_customer.first_name %>さん！</li>
-          <% elsif admin_signed_in? %>
-           <!--管理者がログインしている時 -->
-            <li><%= link_to "商品一覧", admin_items_path %></li>
-            <li><%= link_to "会員一覧", admin_customers_path %></li>
-            <li><%= link_to "注文履歴一覧", admin_path %></li>
-            <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
-          <% else %>
-           <!--ログインしていない時　-->
-            <li><%= link_to 'About', about_path %></li>
-            <li><%= link_to "商品一覧", items_path %></li>
-            <li><%= link_to "新規登録", new_customer_registration_path %></li>
-            <li><%= link_to "ログイン", new_customer_session_path %></li>
-          <% end %>
-        </ul>
-     </nav>
+      <ul>
+        <% if customer_signed_in? %>
+          <!--カスタマーがログインしている時　-->
+          <li><%= link_to 'マイページ', customers_my_page_path  %></li>
+          <li><%= link_to "商品一覧", items_path %></li>
+          <li><%= link_to "カート", cart_items_path %></li>
+          <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></li>
+          <li>ようこそ、<%= current_customer.first_name %>さん！</li>
+        <% elsif admin_signed_in? %>
+          <!--管理者がログインしている時 -->
+          <li><%= link_to "商品一覧", admin_items_path %></li>
+          <li><%= link_to "会員一覧", admin_customers_path %></li>
+          <li><%= link_to "注文履歴一覧", admin_path %></li>
+          <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
+        <% else %>
+          <!--ログインしていない時　-->
+          <li><%= link_to 'About', about_path %></li>
+          <li><%= link_to "商品一覧", items_path %></li>
+          <li><%= link_to "新規登録", new_customer_registration_path %></li>
+          <li><%= link_to "ログイン", new_customer_session_path %></li>
+        <% end %>
+       </ul>
+      </nav>
     </div>
   </div>
- </header>
+</header>
