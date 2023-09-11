@@ -1,6 +1,7 @@
-<h2>ログイン</h2>
-<h4>会員の方はこちらからログイン</h4>
-
+<div class="login_text">
+  <h2>ログイン</h2>
+  <h4>会員の方はこちらからログイン</h4>
+</div>
   <div class="login">
   <%= form_with model: @customer, url: customer_session_path do |f| %>
   <div class="field">
@@ -25,8 +26,9 @@
   </div>
   <% end %>
   </div>
-
-<h4>会員登録がお済みでない方</h4>
-<div class="login_registration">
+<div class="login_text">
+  <h4>会員登録がお済みでない方</h4>
+</div>
+<div class="login">
   <p><%= link_to "こちら", new_customer_registration_path %>から新規登録を行ってください。</p>
 </div>
