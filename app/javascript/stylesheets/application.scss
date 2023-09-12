@@ -92,7 +92,20 @@ li {
 .unsubscribe {
   text-align: center;
   margin: 0 0 100px 0;
+}
 
+// 顧客商品一覧画面
+.item_index_title {
+  margin: 0 0 0 90px;
+}
+
+.item_index {
+  text-align: center;
+  margin: 0 0 0 180px;
+}
+
+.pagination {
+  justify-content: center;
 }
 
 // フッター
