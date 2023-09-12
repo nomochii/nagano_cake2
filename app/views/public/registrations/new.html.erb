@@ -1,28 +1,22 @@
+<div class="registration">
 <h2>新規会員登録</h2>
 
-  <!--<%#= form_with model: @customer, url: customer_registration_path do |f| %>-->
   <%= form_with model: @customer, url: registration_path(resource_name), local: true do |f| %>
   <%= render "public/shared/error_messages", resource: resource %>
 
 
   <div class="field">
     <%= f.label :first_name, "(姓)" %>
-    <%= f.text_field :first_name, autofocus: true, required: true, class: 'form-control' %>
-  </div>
-
-  <div class="field">
+    <%= f.text_field :first_name, autofocus: true, required: true %>
     <%= f.label :last_name, "(名)" %>
-    <%= f.text_field :last_name, autofocus: true, required: true, class: 'form-control' %>
+    <%= f.text_field :last_name, autofocus: true, required: true %>
   </div>
 
   <div class="field">
     <%= f.label :first_name_kana, "(セイ)" %>
-    <%= f.text_field :first_name_kana, autofocus: true, required: true, class: 'form-control' %>
-  </div>
-
-  <div class="field">
+    <%= f.text_field :first_name_kana, autofocus: true, required: true %>
     <%= f.label :last_name_kana, "(メイ)" %>
-    <%= f.text_field :last_name_kana, autofocus: true, required: true, class: 'form-control' %>
+    <%= f.text_field :last_name_kana, autofocus: true, required: true %>
   </div>
 
   <div class="field">
@@ -32,7 +26,7 @@
 
   <div class="field">
     <%= f.label :postal_code, "郵便番号(ハイフンなし)" %>
-    <%= f.text_field :postal_code, autofocus: true, required: true, class: 'form-control' %>
+    <%= f.text_field :postal_code, autofocus: true, required: true %>
   </div>
 
   <div class="field">
@@ -42,7 +36,7 @@
 
   <div class="field">
     <%= f.label :telephone_number, "電話番号(ハイフンなし)" %>
-    <%= f.text_field :telephone_number, autofocus: true, required: true, class: 'form-control' %>
+    <%= f.text_field :telephone_number, autofocus: true, required: true %>
   </div>
 
 
@@ -67,3 +61,4 @@
 <%#= render "public/shared/links" %>
 <h4>既に登録済みの方</h4>
 <p><%= link_to "こちら", new_customer_session_path %>からログインしてください。</p>
+</div>
