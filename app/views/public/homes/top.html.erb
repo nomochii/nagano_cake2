@@ -1,28 +1,28 @@
 <body>
-<div class="top_image">
+  <div class="top_image">
   <%= image_tag 'cafe.jpg', size: "400x300" %>
   <p class="top_text">ようこそ、ながのCAKEへ！</br>
     このサイトは、ケーキ販売のECサイトになります。</br>
     会員でない方も商品の閲覧はできますが、</br>
     購入には会員登録が必要になります。</p>
-</div>
-
-<h1>新着商品</h1>
-  <div class="top_item">
-  <tbody >
-    <% @items.each do |item| %>
-      <tr>
-        <td>
-          <%= link_to item_path(item.id) do %>
-            <%= image_tag item.image, size: "200x200" %>
-          <% end %>
-        </td>
-        <td><%= link_to item.product_name,item_path(item.id) %></td>
-        <td><%= link_to item.price,item_path(item.id) %></td>
-      </tr>
-    <% end %>
   </div>
-  </tbody>
+
+  <h1>新着商品</h1>
+  <div class="top_item">
+    <tbody >
+      <% @items.each do |item| %>
+        <tr>
+          <td>
+            <%= link_to item_path(item.id) do %>
+              <%= image_tag item.image, size: "200x200" %>
+            <% end %>
+          </td>
+          <td><%= link_to item.product_name,item_path(item.id) %></td>
+          <td><%= link_to item.price,item_path(item.id) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </div>
   <div class="top_link">
     <%= link_to "全ての商品を見る>", items_path %></span>
   </div>

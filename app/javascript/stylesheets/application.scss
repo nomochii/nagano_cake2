@@ -36,7 +36,7 @@ li {
   margin: 0 0 0 20px;
 }
 
-// ログイン画面
+// 顧客ログイン画面
 .login{
   text-align: center;
 }
@@ -45,11 +45,12 @@ li {
   margin: 0 0 0 550px;
 }
 
-// 新規登録画面
+// 顧客新規登録画面
 .registration{
   margin: 0 0 0 350px;
 }
 
+// 顧客トップページ
 .top_image {
   text-align: center;
   position: relative;
@@ -74,6 +75,7 @@ li {
   display: block;
 }
 
+// 顧客アバウト画面
 .about_title {
   text-align: center;
 }
@@ -86,6 +88,14 @@ li {
   text-align: center;
 }
 
+// 顧客退会画面
+.unsubscribe {
+  text-align: center;
+  margin: 0 0 100px 0;
+
+}
+
+// フッター
 .footer {
   text-align: center;
   padding: 5rem 0;
