@@ -1,19 +1,27 @@
-<h1>注文情報入力</h1>
-
+<div class="order_new_title">
+  <h1>注文情報入力</h1>
+</div>
 
 <%= form_with model: @order, url: "/orders/confirm",method: :post, local: true do |f| %>
 
   <h2>支払方法</h2>
-  <%= f.radio_button :payment_method, Order.payment_methods.key(0),checked: true %>
-  <%= f.label :payment_method_credit_card, Order.payment_methods_i18n[:credit_card] %>
+  <div class="payment">
+    <%= f.radio_button :payment_method, Order.payment_methods.key(0),checked: true %>
+    <%= f.label :payment_method_credit_card, Order.payment_methods_i18n[:credit_card] %>
 
-  <%= f.radio_button :payment_method, Order.payment_methods.key(1) %>
-  <%= f.label :payment_method_transfer, Order.payment_methods_i18n[:transfer]%>
+    <%= f.radio_button :payment_method, Order.payment_methods.key(1) %>
+    <%= f.label :payment_method_transfer, Order.payment_methods_i18n[:transfer] %>
+  </div>
 
   <h2>お届け先</h2>
-  <h4>〒<%= current_customer.postal_code %></h4>
-  <div><%= current_customer.address %></div>
-  <div><%= current_customer.full_name %></div>
-  <%= f.submit "確認画面へ進む" %>
+  <div class="addressee">
+    <div>〒<%= current_customer.postal_code %>
+          <%= current_customer.address %>
+    </div>
+    <div><%= current_customer.full_name %></div>
+  </div>
+  <div class="confirmation_btn">
+    <%= f.submit "確認画面へ進む" %>
+  </div>
 
 <% end %>
