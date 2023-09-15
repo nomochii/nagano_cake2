@@ -160,6 +160,26 @@ li {
   margin: 0 0 50px 0;
 }
 
+// 顧客注文情報確認
+.order_confirmation_title {
+  margin: 0 0 0 150px;
+}
+
+.payment_title {
+  margin: 0 0 0 300px;
+  float: left;
+}
+
+.addressee_title {
+  clear: left;
+  margin: 0 0 0 300px;
+  float: left;
+}
+
+.order_confirmed_btn {
+   margin: 0 0 0 700px;
+}
+
 // フッター
 .footer {
   text-align: center;
