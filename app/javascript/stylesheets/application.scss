@@ -203,6 +203,29 @@ li {
    text-align: center;
 }
 
+// 管理者商品一覧
+.admin_index_title {
+   margin: 0 0 0 450px;
+   float: left;
+}
+
+.admin_index_newitem_btn {
+   margin: 0 0 0 1000px;
+}
+.admin_index {
+   margin: 0 0 0 450px;
+   clear: left;
+}
+
+.admin_index th,.admin_index td {
+  border-right: none !important;
+  border-left: none !important;
+}
+
+.admin_index_pagination {
+  margin: 0 0 0 -600px;
+}
+
 // フッター
 .footer {
   text-align: center;
