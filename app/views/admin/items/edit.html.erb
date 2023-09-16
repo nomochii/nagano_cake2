@@ -1,18 +1,16 @@
-<h1>商品編集</h1>
-<%= form_with model: @item, url: admin_item_path(@item.id), method: :patch do |f| %>
-
-<h4>商品画像</h4>
-    <%= f.file_field :image, accept: "image/*" %>
-
-  <h4>商品名</h4>
-  <%= f.text_field :product_name %>
-
-  <h4>商品説明</h4>
-  <%= f.text_area :introduction %>
-
-  <h4>税抜価格</h4>
-  <%= f.text_area :price %>
-
-
-  <%= f.submit '変更を保存' %>
-<% end %>
+<div class="admin_item_edit_titl">
+  <h1>商品編集</h1>
+</div>
+<div class="admin_item_edit">
+  <%= form_with model: @item, url: admin_item_path(@item.id), method: :patch do |f| %>
+    <table>
+      <tr><th width="100" height="60">商品画像</th><td><%= f.file_field :image, accept: "image/*" %></td></tr>
+      <tr><th width="100" height="60">商品名</th><td><%= f.text_field :product_name %></td></tr>
+      <tr><th width="100" height="60">商品説明</th><td><%= f.text_area :introduction %></td></tr>
+      <tr><th width="100" height="60">税抜価格</th><td><%= f.text_area :price %>円</td></tr>
+    </table>
+    <div class="save_changes_btn">
+      <%= f.submit '変更を保存' %>
+    </div>
+  <% end %>
+</div>
