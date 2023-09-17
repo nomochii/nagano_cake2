@@ -249,7 +249,6 @@ li {
 }
 
 // 管理者商品編集
-
 .admin_item_edit_titl {
   margin: 0 0 0 80px;
 }
@@ -262,6 +261,15 @@ li {
   margin: 10px 0 20px 150px;
 }
 
+// 管理者会員一覧
+.admin_user_index_titl {
+  margin: 0 0 0 80px;
+}
+
+.admin_user_index {
+  text-align: center;
+  margin: 0 0 0 600px;
+}
 
 // フッター
 .footer {
