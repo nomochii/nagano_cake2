@@ -1,4 +1,7 @@
+<div class="admin_user_edit_title">
   <h4><%= @customer.full_name %>さんの会員情報編集</h4>
+</div>
+<div class="admin_user_edit">
   <%= form_with model: @customer, url: admin_customer_path(@customer.id), method: :patch do |f| %>
   <table>
     <tr>
@@ -49,4 +52,4 @@
     </tr>
   </table>
   <% end %>
-
+</div>
