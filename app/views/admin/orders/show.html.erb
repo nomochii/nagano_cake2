@@ -1,19 +1,19 @@
-<h1>注文履歴詳細</h1>
+<div class="admin_order_titl">
+  <h1>注文履歴詳細</h1>
+</div>
+<div class="admin_order_user">
+  <table>
+    <tr><th width="130" height="60">購入者</th><td><%= link_to admin_customer_path(@order) do %>
+                                                    <%= @order.customer.last_name %><%= @order.customer.first_name %>
+                                                    <% end %></td></tr>
+    <tr><th width="130" height="60">注文日</th><td><%= @order.created_at.strftime("%Y/%m/%d %H:%M") %></td></tr>
+    <tr><th width="130" height="60">配送先</th><td>〒<%= @order.shipping_postal_code %><%= @order.shipping_address %>
+                                                    <p><%= @order.shipping_name %></p></td></tr>
+    <tr><th width="130" height="60">支払方法</th><td><%= @order.payment_method_i18n %></td></tr>
+  </table>
+</div>
 
-<h4>購入者</h4>
-<p>
-<%= link_to admin_customer_path(@order) do %>
-  <%= @order.customer.last_name %><%= @order.customer.first_name %>
-<% end %>
-</p>
-<h4>注文日</h4>
-<p><%= @order.created_at.strftime("%Y/%m/%d %H:%M") %></p>
-<h4>配送先</h4>
-<p>〒<%= @order.shipping_postal_code %></p>
-<p><%= @order.shipping_address %></p>
-<p><%= @order.shipping_name %></p>
-<h4>支払方法</h4>
-<p><%= @order.payment_method_i18n%>></p>
+
 
 <table>
     <thead>
