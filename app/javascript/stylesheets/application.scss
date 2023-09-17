@@ -322,7 +322,9 @@ li {
 
 // フッター
 .footer {
+  position: absolute;/*←絶対位置*/
+  bottom: 0; /*下に固定*/
   text-align: center;
-  padding: 5rem 0;
+  padding: 5px 800px;
   background-color: rgba(0,0,0,0.5);
 }

@@ -37,8 +37,11 @@ class Public::CartItemsController < ApplicationController
         new_amount = cart_item.amount + @cart_item.amount
         cart_item.update_attribute(:amount, new_amount)
         @cart_item.delete
+        # if @cart_items == nil
+        # render root_path
         # else
-        #   redirect_to new_customer_session_path
+        # redirect_to new_order_path
+        # end
         end
       end
       @cart_item.save
