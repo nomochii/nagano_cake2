@@ -2,9 +2,12 @@ class Public::OrdersController < ApplicationController
 
    # 購入情報の入力画面で、宛先や住所などを入力する所（フォームを作成するのに使う）
   def new
+    @cart_items = current_customer.cart_items
+    if @cart_items == []
+      redirect_to root_path
+    end
     @order = Order.new
   end
-
 
   def create
     order = Order.new(order_params)
@@ -44,7 +47,6 @@ class Public::OrdersController < ApplicationController
     @cart_items = current_customer.cart_items
     @total = @cart_items.inject(0) { |sum, item| sum + item.subtotal }
     @order.total_amount = @total + @order.postage
-
   end
 
   def complete
