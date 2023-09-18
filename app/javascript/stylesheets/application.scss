@@ -53,13 +53,13 @@ li {
 
 // 顧客トップページ
 .top_image {
-  text-align: center;
+  margin: 0 0 0 400px;
   position: relative;
 }
 
 .top_text {
   position: absolute;
-  top: 50%;
+  top: 65%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: #FF69B4;

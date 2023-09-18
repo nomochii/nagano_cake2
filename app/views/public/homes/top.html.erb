@@ -1,26 +1,35 @@
-<body>
-  <div class="top_image">
-  <%= image_tag 'cafe.jpg', size: "400x300" %>
-  <p class="top_text">ようこそ、ながのCAKEへ！</br>
-    このサイトは、ケーキ販売のECサイトになります。</br>
-    会員でない方も商品の閲覧はできますが、</br>
-    購入には会員登録が必要になります。</p>
+<div class="container">
+  <div class="row">
+    <div class="top_image">
+      <%= image_tag 'cafe.jpg', size: "400x300" %>
+    <p class="top_text">ようこそ、ながのCAKEへ！</br>
+      このサイトは、ケーキ販売のECサイトになります。</br>
+      会員でない方も商品の閲覧はできますが、</br>
+      購入には会員登録が必要になります。</p>
+    </div>
   </div>
 
-  <h1>新着商品</h1>
-  <div class="top_item_img">
+  <div class="row">
+    <h1>新着商品</h1>
+  </div>
+  <div class="row">
     <% @items.each do |item| %>
+    <div class="col-3">
+      <div class="top_item_img">
           <%= link_to item_path(item.id) do %>
             <%= image_tag item.image, size: "200x200" %>
           <% end %>
-        </li>
-        <li><p><%= link_to item.product_name,item_path(item.id) %></p></li>
-        <li><p><%= link_to item.price,item_path(item.id) %></p></li>
-      </ul>
-    <% end %>
-   </div>
-  <div class="top_link">
-    <%= link_to "全ての商品を見る>", items_path %></span>
+    </div>
+  <div class="row">
+    <p><%= link_to item.product_name,item_path(item.id) %></p>
   </div>
-</body>
-<!--（画像と文字の配置についてはグリッドシステムを使用してみよう）-->
+  <div class="row">
+    <p>¥<%= link_to item.price,item_path(item.id) %></p>
+  </div>
+  </div>
+    <% end %>
+  </div>
+  <div class="top_link">
+    <span><%= link_to "全ての商品を見る>", items_path %></span>
+  </div>
+</div>
